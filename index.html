@@ -126,6 +126,7 @@
   .step:not(:last-child)::after{content:"\2192";position:absolute;right:-23px;top:50%;transform:translateY(-50%);z-index:3;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:15px;box-shadow:0 5px 12px -4px rgba(0,0,0,.35);border:2px solid #fff}
   @media(max-width:860px){.step:not(:last-child)::after{content:"\2193";right:auto;left:50%;top:auto;bottom:-23px;transform:translateX(-50%)}}
   @media(max-width:860px){.bsteps{grid-template-columns:1fr}}
+  @media(max-width:768px){.step .stt{font-size:clamp(18px,5vw,22px);text-align:center}}
   /* social proof — side-by-side on desktop, stacked on mobile */
   .proof{width:min(96vw,1040px);margin:40px auto 0;position:relative;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;text-align:left}
   .proof+.proof{margin-top:64px}
