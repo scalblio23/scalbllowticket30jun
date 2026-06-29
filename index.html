@@ -52,7 +52,8 @@
   /* mini header */
   .top{padding:16px 0;border-bottom:1px solid var(--line)}
   .top .wrap{max-width:100%;padding:0 32px}
-  .top .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .top .row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:nowrap}
+  @media(max-width:600px){.top .help{display:none}}
   .brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:19px;display:flex;align-items:center;gap:8px}
   .brand .m{width:24px;height:24px;border-radius:6px;background:var(--ink);display:grid;place-items:center}
   .brand .m::after{content:"";width:9px;height:9px;border-radius:3px;background:var(--green-l)}
