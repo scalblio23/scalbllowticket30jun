@@ -127,6 +127,8 @@
   @media(max-width:860px){.step:not(:last-child)::after{content:"\2193";right:auto;left:50%;top:auto;bottom:-23px;transform:translateX(-50%)}}
   @media(max-width:860px){.bsteps{grid-template-columns:1fr}}
   @media(max-width:768px){.step .stt{font-size:clamp(18px,5vw,22px);text-align:center}}
+  .gets-arrow{display:none}
+  @media(max-width:768px){.gets-h2{font-size:clamp(29px,7vw,38px) !important}.gets-arrow{display:block;text-align:center;font-size:36px;margin-top:6px;color:var(--green-d)}}
   /* social proof — side-by-side on desktop, stacked on mobile */
   .proof{width:min(96vw,1040px);margin:40px auto 0;position:relative;left:50%;transform:translateX(-50%);display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;text-align:left}
   .proof+.proof{margin-top:64px}
@@ -357,7 +359,8 @@
       </div>
     </div>
     <div class="gets">
-      <h2 class="stmt sm">Here&rsquo;s what we&rsquo;ll build for you for just <span class="grn">$97</span></h2>
+      <h2 class="stmt sm gets-h2">Here&rsquo;s what we&rsquo;ll build for you for just <span class="grn">$97</span></h2>
+      <div class="gets-arrow">&#8595;</div>
       <div class="bsteps">
         <div class="step">
           <div class="slabel">Step 1</div>
