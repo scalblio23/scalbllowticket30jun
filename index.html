@@ -173,9 +173,9 @@
   .mock-note{font-size:12px;color:#94a3b8;text-align:center;margin-top:12px}
 
   /* CTA box (repeated) */
-  .cta{max-width:520px;margin:38px auto 0;background:#fff;border:2px solid var(--green);border-radius:16px;padding:26px 24px;text-align:center;box-shadow:0 22px 44px -26px rgba(22,163,74,.55)}
-  .cta .pl{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;margin-bottom:6px}
-  .cta .ph{font-family:'Montserrat',sans-serif;font-weight:900;font-size:23px;margin-bottom:18px;line-height:1.2}
+  .cta{max-width:520px;margin:38px auto 0;background:#1a1a1a;border:2px solid #333;border-radius:16px;padding:26px 24px;text-align:center;box-shadow:0 22px 44px -12px rgba(0,0,0,0.45)}
+  .cta .pl{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;margin-bottom:6px;color:#e2e8f0}
+  .cta .ph{font-family:'Montserrat',sans-serif;font-weight:900;font-size:23px;margin-bottom:18px;line-height:1.2;color:#fff}
   .cta .ph .strike{font-size:19px;margin-right:4px}
   .btn{position:relative;display:block;width:100%;background:linear-gradient(120deg,#b8480e 0%,#df670f 50%,#f59331 100%);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(16px,3.6vw,20px);border:0;border-radius:13px;padding:18px 22px;cursor:pointer;text-decoration:none;text-align:center;line-height:1.18;overflow:hidden;isolation:isolate;box-shadow:0 18px 38px -16px rgba(224,104,15,.6),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .1s,filter .15s}
   .btn::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;background:conic-gradient(from var(--shimmer,0deg),transparent 0deg,rgba(255,255,255,.95) 38deg,rgba(255,221,179,.55) 74deg,transparent 118deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:btnsheen 3.4s linear infinite;pointer-events:none;z-index:2}
@@ -186,7 +186,7 @@
   @keyframes btnsheen{to{--shimmer:360deg}}
   .btn .bsub{display:block;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;opacity:.92;margin-top:6px;text-transform:none}
   .btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--green-d)}
-  .reassure{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px;font-size:12.5px;color:var(--grey);font-weight:600}
+  .reassure{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px;font-size:12.5px;color:#94a3b8;font-weight:600}
   .reassure span{display:inline-flex;align-items:center;gap:5px}
   .reassure .g{color:var(--green-d);font-weight:800}
   :focus-visible{outline:3px solid var(--green-d);outline-offset:3px}
