@@ -330,7 +330,51 @@
 <!-- MINI HEADER -->
 <div class="top">
   <div class="wrap row">
-    <div class="brand"><span class="m"></span>Fully Booked System</div>
+    <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;filter:drop-shadow(0 0 6px rgba(74,222,128,0.8)) drop-shadow(0 0 14px rgba(34,197,94,0.5))">
+      <defs>
+        <linearGradient id="bg3d" x1="0" y1="0" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#166534"/>
+          <stop offset="100%" stop-color="#052e16"/>
+        </linearGradient>
+        <linearGradient id="bar1" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#4ade80"/>
+          <stop offset="100%" stop-color="#16a34a"/>
+        </linearGradient>
+        <linearGradient id="bar2" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#86efac"/>
+          <stop offset="100%" stop-color="#22c55e"/>
+        </linearGradient>
+        <linearGradient id="bar3" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#bbf7d0"/>
+          <stop offset="100%" stop-color="#4ade80"/>
+        </linearGradient>
+      </defs>
+      <!-- Background rounded square -->
+      <rect width="30" height="30" rx="7" fill="url(#bg3d)"/>
+      <!-- Top edge highlight (3D effect) -->
+      <rect width="30" height="2" rx="2" fill="rgba(255,255,255,0.15)"/>
+      <!-- Left edge highlight -->
+      <rect width="2" height="30" rx="2" fill="rgba(255,255,255,0.08)"/>
+      <!-- Chart bars (isometric-ish, short to tall left to right) -->
+      <!-- Bar 1 -->
+      <rect x="5" y="18" width="5" height="8" rx="1.5" fill="url(#bar1)"/>
+      <rect x="5" y="18" width="5" height="1.5" rx="1" fill="rgba(255,255,255,0.25)"/>
+      <!-- Bar 2 -->
+      <rect x="12" y="12" width="5" height="14" rx="1.5" fill="url(#bar2)"/>
+      <rect x="12" y="12" width="5" height="1.5" rx="1" fill="rgba(255,255,255,0.25)"/>
+      <!-- Bar 3 -->
+      <rect x="19" y="6" width="5" height="20" rx="1.5" fill="url(#bar3)"/>
+      <rect x="19" y="6" width="5" height="1.5" rx="1" fill="rgba(255,255,255,0.3)"/>
+      <!-- Trend line -->
+      <polyline points="7.5,17 14.5,11 21.5,5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+      <!-- Trend dots -->
+      <circle cx="7.5" cy="17" r="1.5" fill="#fff" opacity="0.9"/>
+      <circle cx="14.5" cy="11" r="1.5" fill="#fff" opacity="0.9"/>
+      <circle cx="21.5" cy="5" r="2" fill="#fff"/>
+    </svg>
+    Fully Booked
+  </div>
     <div class="help">Questions? <b>hello@scalbl.io</b></div>
   </div>
 </div>
