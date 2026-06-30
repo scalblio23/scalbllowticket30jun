@@ -27,6 +27,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden}
   body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased}
   h1,h2,h3,.mont{font-family:'Montserrat',sans-serif;letter-spacing:-.02em;line-height:1.12}
   img{max-width:100%;display:block}
@@ -76,7 +77,7 @@
   .herocol{display:flex;flex-direction:column;min-width:0}
   .herorow .systemshot{max-width:none;width:100%;margin:0}
   .herorow .cta{max-width:none;width:100%}
-  @media(max-width:860px){.herorow{grid-template-columns:1fr;width:min(98vw,680px)}.ordercol{margin-top:18px}.vidhdr{height:auto;line-height:1.3;margin:0 0 30px;font-size:clamp(8px,2.4vw,10px);white-space:normal;max-width:100%}
+  @media(max-width:860px){.herorow{grid-template-columns:1fr;width:min(98vw,680px)}.ordercol{margin-top:18px;width:100vw;position:relative;left:50%;transform:translateX(-50%)}.ordercol .orderform{max-width:97vw}.vidhdr{height:auto;line-height:1.3;margin:0 0 30px;font-size:clamp(8px,2.4vw,10px);white-space:normal;max-width:100%}
   /* bigger WHITE order card on mobile */
   .orderform{max-width:none;padding:34px 26px}
   .orderform .ofhead{font-size:15px}
