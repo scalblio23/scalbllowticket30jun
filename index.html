@@ -330,48 +330,46 @@
 <!-- MINI HEADER -->
 <div class="top">
   <div class="wrap row">
-    <div class="brand">
-    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;filter:drop-shadow(0 0 6px rgba(74,222,128,0.8)) drop-shadow(0 0 14px rgba(34,197,94,0.5))">
+    <div class="brand" style="font-family:'Montserrat',sans-serif;font-weight:300;font-size:17px;letter-spacing:0.06em;color:rgba(255,255,255,0.88);gap:10px">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;filter:drop-shadow(0 0 8px rgba(255,255,255,0.18)) drop-shadow(0 2px 12px rgba(255,255,255,0.1))">
       <defs>
-        <linearGradient id="bg3d" x1="0" y1="0" x2="30" y2="30" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#166534"/>
-          <stop offset="100%" stop-color="#052e16"/>
+        <linearGradient id="glassbg" x1="0" y1="0" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.18)"/>
+          <stop offset="100%" stop-color="rgba(255,255,255,0.05)"/>
         </linearGradient>
-        <linearGradient id="bar1" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
-          <stop offset="0%" stop-color="#4ade80"/>
-          <stop offset="100%" stop-color="#16a34a"/>
+        <linearGradient id="bar1g" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
+          <stop offset="100%" stop-color="rgba(255,255,255,0.35)"/>
         </linearGradient>
-        <linearGradient id="bar2" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
-          <stop offset="0%" stop-color="#86efac"/>
-          <stop offset="100%" stop-color="#22c55e"/>
+        <linearGradient id="bar2g" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.85)"/>
+          <stop offset="100%" stop-color="rgba(255,255,255,0.3)"/>
         </linearGradient>
-        <linearGradient id="bar3" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
-          <stop offset="0%" stop-color="#bbf7d0"/>
-          <stop offset="100%" stop-color="#4ade80"/>
+        <linearGradient id="bar3g" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="rgba(255,255,255,1)"/>
+          <stop offset="100%" stop-color="rgba(255,255,255,0.4)"/>
         </linearGradient>
       </defs>
-      <!-- Background rounded square -->
-      <rect width="30" height="30" rx="7" fill="url(#bg3d)"/>
-      <!-- Top edge highlight (3D effect) -->
-      <rect width="30" height="2" rx="2" fill="rgba(255,255,255,0.15)"/>
-      <!-- Left edge highlight -->
-      <rect width="2" height="30" rx="2" fill="rgba(255,255,255,0.08)"/>
-      <!-- Chart bars (isometric-ish, short to tall left to right) -->
-      <!-- Bar 1 -->
-      <rect x="5" y="18" width="5" height="8" rx="1.5" fill="url(#bar1)"/>
-      <rect x="5" y="18" width="5" height="1.5" rx="1" fill="rgba(255,255,255,0.25)"/>
-      <!-- Bar 2 -->
-      <rect x="12" y="12" width="5" height="14" rx="1.5" fill="url(#bar2)"/>
-      <rect x="12" y="12" width="5" height="1.5" rx="1" fill="rgba(255,255,255,0.25)"/>
-      <!-- Bar 3 -->
-      <rect x="19" y="6" width="5" height="20" rx="1.5" fill="url(#bar3)"/>
-      <rect x="19" y="6" width="5" height="1.5" rx="1" fill="rgba(255,255,255,0.3)"/>
+      <!-- Glass background -->
+      <rect width="30" height="30" rx="7" fill="url(#glassbg)"/>
+      <!-- Glass border -->
+      <rect x="0.5" y="0.5" width="29" height="29" rx="6.5" stroke="rgba(255,255,255,0.28)" stroke-width="1" fill="none"/>
+      <!-- Top sheen -->
+      <rect x="1" y="1" width="28" height="8" rx="5" fill="rgba(255,255,255,0.12)"/>
+      <!-- Bars -->
+      <rect x="5" y="18" width="5" height="9" rx="1.5" fill="url(#bar1g)" opacity="0.7"/>
+      <rect x="12" y="12" width="5" height="15" rx="1.5" fill="url(#bar2g)" opacity="0.8"/>
+      <rect x="19" y="5" width="5" height="22" rx="1.5" fill="url(#bar3g)" opacity="0.9"/>
+      <!-- Bar top highlights -->
+      <rect x="5" y="18" width="5" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
+      <rect x="12" y="12" width="5" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
+      <rect x="19" y="5" width="5" height="2" rx="1" fill="rgba(255,255,255,0.6)"/>
       <!-- Trend line -->
-      <polyline points="7.5,17 14.5,11 21.5,5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+      <polyline points="7.5,17 14.5,11 21.5,4" stroke="rgba(255,255,255,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2,1.5"/>
       <!-- Trend dots -->
-      <circle cx="7.5" cy="17" r="1.5" fill="#fff" opacity="0.9"/>
-      <circle cx="14.5" cy="11" r="1.5" fill="#fff" opacity="0.9"/>
-      <circle cx="21.5" cy="5" r="2" fill="#fff"/>
+      <circle cx="7.5" cy="17" r="1.5" fill="#fff" opacity="0.7"/>
+      <circle cx="14.5" cy="11" r="1.5" fill="#fff" opacity="0.8"/>
+      <circle cx="21.5" cy="4" r="2" fill="#fff" opacity="1"/>
     </svg>
     Fully Booked
   </div>
