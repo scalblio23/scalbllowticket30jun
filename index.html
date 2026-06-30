@@ -210,6 +210,8 @@
   .arrowline b{font-weight:800}
   .niches{max-width:100%;margin:34px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px 33px}
   .niche{display:flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:21px;color:var(--ink);text-align:left}
+  .niche{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .niche.in{opacity:1;transform:none}
   .niche .tick{width:26px;height:26px;border-radius:6px;background:var(--green-bg);color:var(--green-d);display:grid;place-items:center;font-weight:900;font-size:16px;flex:0 0 auto}
   .oldway{max-width:720px;margin:30px auto 0;display:grid;gap:17px;text-align:left}
   .oldway-section{background:linear-gradient(180deg,#0f1b30 0%,#16263f 100%)}
@@ -1405,6 +1407,16 @@
     days.forEach(function(d,di){var c=document.createElement('div');c.className='day';
       var h=document.createElement('div');h.className='dh';h.textContent=d;c.appendChild(h);
       for(var i=0;i<4;i++){var s=document.createElement('div');s.className='sl'+(booked[di][i]?' b':'');s.textContent=booked[di][i]?'BKD':'';c.appendChild(s);}g.appendChild(c);});})();
+
+  // niches fade-in on scroll
+  (function(){var items=document.querySelectorAll('.niche');if(!items.length)return;
+    if(!('IntersectionObserver' in window)){items.forEach(function(n){n.classList.add('in');});return;}
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(e){
+      if(e.isIntersecting){var el=e.target;var i=+el.getAttribute('data-i')||0;
+        setTimeout(function(){el.classList.add('in');},(i%3)*60+Math.floor(i/3)*40);io.unobserve(el);}
+    });},{threshold:0.15});
+    items.forEach(function(n,i){n.setAttribute('data-i',i);io.observe(n);});
+  })();
 
   // faq
   document.querySelectorAll('.q button').forEach(function(b){b.addEventListener('click',function(){
