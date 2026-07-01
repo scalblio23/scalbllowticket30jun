@@ -2,6 +2,12 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
+  "rewrites": [
+    {
+      "source": "/.well-known/apple-developer-merchantid-domain-association",
+      "destination": "/wellknown/apple-developer-merchantid-domain-association"
+    }
+  ],
   "headers": [
     {
       "source": "/.well-known/apple-developer-merchantid-domain-association",
