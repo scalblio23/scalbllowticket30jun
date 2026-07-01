@@ -105,7 +105,8 @@
   .ofstep.on .ofst{color:var(--green)}
   .ofstep .ofsd{font-size:12px;color:var(--grey);margin-top:2px}
   .ofbar{height:3px;background:var(--line);border-radius:3px;position:relative;margin-bottom:18px}
-  .ofbar::before{content:"";position:absolute;left:0;top:0;height:100%;width:50%;background:var(--green);border-radius:3px}
+  .ofbar::before{content:"";position:absolute;left:0;top:0;height:100%;width:50%;background:var(--green);border-radius:3px;transition:width .3s}
+  .ofbar.full::before{width:100%}
   .offield{width:100%;border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:15px;font-family:'Inter',sans-serif;color:var(--ink);margin-bottom:12px;background:#fff;text-align:left}
   .offield::placeholder{color:#98a2b3}
   .ofbtn{display:block;width:100%;background:#e07a2e;color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:19px;border:0;border-radius:11px;padding:16px;text-decoration:none;text-align:center;cursor:pointer;box-shadow:0 12px 26px -14px rgba(224,122,46,.6);transition:filter .15s}
@@ -533,8 +534,23 @@
         <div class="ofjoin">Get Now Just <span class="strike">$1,979</span> <span class="ofnew">$97</span></div>
         <div class="ofsave">You&rsquo;re Instantly <b>Saving $1,882</b></div>
         <div class="ofdeal">&#8595; <b>95% OFF</b> Deal <span class="grn">Available Today</span>!</div>
-        <!-- Whop embedded checkout -->
-        <div data-whop-checkout-plan-id="plan_gxkvcuhEddVil" data-whop-checkout-theme="light" style="min-height:520px;margin-top:16px;border-radius:12px;overflow:hidden"></div>
+        <div class="ofsteps">
+          <div class="ofstep on" id="ofind1"><div class="ofst">STEP 1</div><div class="ofsd">Contact Details</div></div>
+          <div class="ofstep" id="ofind2"><div class="ofst">STEP 2</div><div class="ofsd">Billing Details</div></div>
+        </div>
+        <div class="ofbar" id="ofbar"></div>
+
+        <!-- Step 1: contact details -->
+        <div id="ofstep1">
+          <input class="offield" id="ofName" type="text" placeholder="Full Name" />
+          <input class="offield" id="ofEmail" type="email" placeholder="Email Address&hellip;" />
+          <a href="#" class="ofbtn" id="ofNext">Go To Step #2</a>
+        </div>
+
+        <!-- Step 2: Whop embedded checkout -->
+        <div id="ofstep2" style="display:none">
+          <div data-whop-checkout-plan-id="plan_gxkvcuhEddVil" data-whop-checkout-theme="light" style="min-height:520px;margin-top:8px;border-radius:12px;overflow:hidden"></div>
+        </div>
 
         <!-- Payment logos -->
         <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px">
@@ -1429,6 +1445,26 @@
     var q=b.parentElement,a=q.querySelector('.a'),open=q.classList.contains('open');
     document.querySelectorAll('.q.open').forEach(function(o){o.classList.remove('open');o.querySelector('.a').style.maxHeight=null;});
     if(!open){q.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}});});
+</script>
+<script>
+  (function(){
+    var next=document.getElementById('ofNext');if(!next)return;
+    next.addEventListener('click',function(e){
+      e.preventDefault();
+      var name=document.getElementById('ofName'),email=document.getElementById('ofEmail');
+      if(!name.value.trim()){name.focus();name.style.borderColor='#dc2626';return;}
+      var ev=email.value.trim();
+      if(!ev||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ev)){email.focus();email.style.borderColor='#dc2626';return;}
+      document.getElementById('ofstep1').style.display='none';
+      document.getElementById('ofstep2').style.display='block';
+      document.getElementById('ofind1').classList.remove('on');
+      document.getElementById('ofind2').classList.add('on');
+      var bar=document.getElementById('ofbar');if(bar)bar.classList.add('full');
+      // prefill Whop with the captured email if supported
+      var wc=document.querySelector('[data-whop-checkout-plan-id]');
+      if(wc){wc.setAttribute('data-whop-checkout-prefill-email',ev);}
+    });
+  })();
 </script>
 <script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
 </body>
