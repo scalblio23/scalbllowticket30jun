@@ -533,14 +533,8 @@
         <div class="ofjoin">Get Now Just <span class="strike">$1,979</span> <span class="ofnew">$97</span></div>
         <div class="ofsave">You&rsquo;re Instantly <b>Saving $1,882</b></div>
         <div class="ofdeal">&#8595; <b>95% OFF</b> Deal <span class="grn">Available Today</span>!</div>
-        <div class="ofsteps">
-          <div class="ofstep on"><div class="ofst">STEP 1</div><div class="ofsd">Contact Details</div></div>
-          <div class="ofstep"><div class="ofst">STEP 2</div><div class="ofsd">Billing Details</div></div>
-        </div>
-        <div class="ofbar"></div>
-        <input class="offield" type="text" placeholder="Full Name" />
-        <input class="offield" type="email" placeholder="Email Address&hellip;" />
-        <a href="https://whop.com/checkout/plan_gxkvcuhEddVil" class="ofbtn" target="_blank" rel="noopener">Go To Step #2</a>
+        <!-- Whop embedded checkout -->
+        <div data-whop-checkout-plan-id="plan_gxkvcuhEddVil" data-whop-checkout-theme="light" style="min-height:520px;margin-top:16px;border-radius:12px;overflow:hidden"></div>
 
         <!-- Payment logos -->
         <div style="margin-top:16px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px">
@@ -1436,5 +1430,6 @@
     document.querySelectorAll('.q.open').forEach(function(o){o.classList.remove('open');o.querySelector('.a').style.maxHeight=null;});
     if(!open){q.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}});});
 </script>
+<script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
 </body>
 </html>
