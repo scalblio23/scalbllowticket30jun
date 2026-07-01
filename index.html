@@ -1490,5 +1490,36 @@ src="https://www.facebook.com/tr?id=1704508696858997&ev=PageView&noscript=1"
 </script>
 <script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
 
+<!-- Checkout modal -->
+<div id="coModal" class="co-modal" aria-hidden="true">
+  <div class="co-backdrop" data-co-close></div>
+  <div class="co-card" role="dialog" aria-modal="true" aria-label="Get started">
+    <button class="co-x" data-co-close aria-label="Close">&times;</button>
+    <h3 class="co-h">&#9989; Get Your Automatic Booking System Right Now</h3>
+    <input id="coName" class="co-field" type="text" placeholder="FULL NAME" autocomplete="name" />
+    <input id="coEmail" class="co-field" type="email" placeholder="EMAIL ADDRESS" autocomplete="email" />
+    <a href="https://whop.com/checkout/plan_xL6vcCMMFTgVI" id="coGo" class="co-btn">GET STARTED &rarr;</a>
+  </div>
+</div>
+
+<script>
+  (function(){
+    var modal=document.getElementById('coModal');if(!modal)return;
+    function open(e){if(e)e.preventDefault();modal.classList.add('open');modal.setAttribute('aria-hidden','false');var n=document.getElementById('coName');if(n)setTimeout(function(){n.focus();},60);}
+    function close(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');}
+    document.querySelectorAll('a.btn').forEach(function(b){b.addEventListener('click',open);});
+    modal.querySelectorAll('[data-co-close]').forEach(function(x){x.addEventListener('click',close);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+    var go=document.getElementById('coGo');
+    go.addEventListener('click',function(e){
+      e.preventDefault();
+      var name=document.getElementById('coName'),email=document.getElementById('coEmail');
+      if(!name.value.trim()){name.focus();name.style.borderColor='#dc2626';return;}
+      var ev=email.value.trim();
+      if(!ev||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ev)){email.focus();email.style.borderColor='#dc2626';return;}
+      window.location.href='https://whop.com/checkout/plan_xL6vcCMMFTgVI?email='+encodeURIComponent(ev);
+    });
+  })();
+</script>
 </body>
 </html>
