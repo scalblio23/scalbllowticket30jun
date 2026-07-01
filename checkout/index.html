@@ -108,8 +108,8 @@
 
     <!-- LEFT: form/payment -->
     <div>
-      <!-- Whop embedded checkout -->
-      <div class="whopbox" data-whop-checkout-plan-id="plan_l1bECUoRGJTWP" data-whop-checkout-theme="light"></div>
+      <!-- Whop hosted checkout (full-height iframe) -->
+      <div class="whopbox"><iframe src="https://whop.com/checkout/plan_l1bECUoRGJTWP" title="Secure Checkout" allow="payment *" style="width:100%;min-height:900px;border:0;display:block"></iframe></div>
 
       <div class="safenote">* 100% Secure &amp; Safe Payment *</div>
       <div class="pays">
@@ -189,6 +189,5 @@
 </footer>
 
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
-<script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
 </body>
 </html>
