@@ -128,7 +128,7 @@ src="https://www.facebook.com/tr?id=1704508696858997&ev=PageView&noscript=1"
     <!-- LEFT: form/payment -->
     <div>
       <!-- Whop embedded checkout -->
-      <div class="whopbox" data-whop-checkout-plan-id="plan_l1bECUoRGJTWP" data-whop-checkout-theme="light" data-whop-checkout-theme-accent-color="#e07a2e"></div>
+      <div class="whopbox" data-whop-checkout-plan-id="plan_xL6vcCMMFTgVI" data-whop-checkout-theme="light" data-whop-checkout-theme-accent-color="#e07a2e"></div>
 
       <div class="safenote">* 100% Secure &amp; Safe Payment *</div>
       <div class="pays">
@@ -209,6 +209,18 @@ src="https://www.facebook.com/tr?id=1704508696858997&ev=PageView&noscript=1"
 </footer>
 
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script>
+  (function(){
+    try{
+      var p=new URLSearchParams(window.location.search);
+      var email=p.get('email');
+      if(email){
+        var wc=document.querySelector('[data-whop-checkout-plan-id]');
+        if(wc){wc.setAttribute('data-whop-checkout-prefill-email',email);}
+      }
+    }catch(e){}
+  })();
+</script>
 <script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
 </body>
 </html>

@@ -205,6 +205,13 @@ src="https://www.facebook.com/tr?id=1704508696858997&ev=PageView&noscript=1"
 
   /* CTA box (repeated) */
   .cta{max-width:520px;margin:38px auto 0;background:#0a0a0a;border:1px solid #2a2a2a;border-radius:12px;padding:26px 26px;text-align:center;box-shadow:0 10px 24px -8px rgba(0,0,0,0.35)}
+  @media(max-width:600px){
+    .cta{background:none !important;border:0 !important;box-shadow:none !important;padding:0 !important}
+    .cta > div:first-of-type > div:nth-child(1),
+    .cta > div:first-of-type > div:nth-child(2),
+    .cta .reassure{display:none !important}
+    .cta > div:first-of-type > div:nth-child(3){margin-top:0 !important}
+  }
   .cta .pl{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;margin-bottom:4px;color:#e2e8f0}
   .cta .ph{font-family:'Montserrat',sans-serif;font-weight:900;font-size:23px;margin-bottom:18px;line-height:1.2;color:#fff}
   .cta .ph .strike{font-size:19px;margin-right:4px}
