@@ -50,7 +50,9 @@ src="https://www.facebook.com/tr?id=1704508696858997&ev=PageView&noscript=1"
   @media(max-width:900px){.grid{grid-template-columns:1fr;gap:20px;padding:22px 0 40px}}
 
   /* LEFT — form */
-  .whopbox{min-height:600px;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:16px}
+  .whopbtn{display:block;text-align:center;text-decoration:none;background:linear-gradient(120deg,#b8480e,#df670f 55%,#f59331);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;border-radius:14px;padding:22px 20px;margin-bottom:16px;box-shadow:0 16px 34px -14px rgba(224,122,46,.6);transition:filter .15s}
+  .whopbtn:hover{filter:brightness(1.05)}
+  .whopbtn .sub{display:block;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;opacity:.92;margin-top:6px;text-transform:none}
   .safenote{text-align:center;font-size:12.5px;color:var(--grey);margin-bottom:16px}
   .pays{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:24px}
   .pays .pl{height:30px;display:flex;align-items:center;justify-content:center;border-radius:6px;padding:4px 11px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px}
@@ -127,8 +129,8 @@ src="https://www.facebook.com/tr?id=1704508696858997&ev=PageView&noscript=1"
 
     <!-- LEFT: form/payment -->
     <div>
-      <!-- Whop embedded checkout -->
-      <div class="whopbox" data-whop-checkout-plan-id="plan_xL6vcCMMFTgVI" data-whop-checkout-theme="light" data-whop-checkout-theme-accent-color="#e07a2e"></div>
+      <!-- Whop hosted checkout (link, not embed) -->
+      <a id="whopBtn" href="https://whop.com/checkout/plan_xL6vcCMMFTgVI" class="whopbtn">Complete Your Order &mdash; $97 &rarr;<span class="sub">Secure checkout &middot; 30-Day Money Back Guarantee</span></a>
 
       <div class="safenote">* 100% Secure &amp; Safe Payment *</div>
       <div class="pays">
@@ -212,15 +214,17 @@ src="https://www.facebook.com/tr?id=1704508696858997&ev=PageView&noscript=1"
 <script>
   (function(){
     try{
-      var p=new URLSearchParams(window.location.search);
-      var email=p.get('email');
+      var email=new URLSearchParams(window.location.search).get('email');
       if(email){
-        var wc=document.querySelector('[data-whop-checkout-plan-id]');
-        if(wc){wc.setAttribute('data-whop-checkout-prefill-email',email);}
+        var btn=document.getElementById('whopBtn');
+        if(btn){
+          var u=new URL(btn.href);
+          u.searchParams.set('email',email);
+          btn.href=u.toString();
+        }
       }
     }catch(e){}
   })();
 </script>
-<script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
 </body>
 </html>
