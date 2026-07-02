@@ -1517,7 +1517,21 @@ src="https://www.facebook.com/tr?id=1704508696858997&ev=PageView&noscript=1"
       if(!name.value.trim()){name.focus();name.style.borderColor='#dc2626';return;}
       var ev=email.value.trim();
       if(!ev||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ev)){email.focus();email.style.borderColor='#dc2626';return;}
-      window.location.href='https://whop.com/checkout/plan_xL6vcCMMFTgVI?email='+encodeURIComponent(ev);
+      var nm=name.value.trim();
+      var dest='https://whop.com/checkout/plan_xL6vcCMMFTgVI?email='+encodeURIComponent(ev);
+      // Capture the opt-in to Zapier (Google Sheet), then redirect to Whop regardless of result
+      var payload={name:nm,email:ev,source:'landing-popup',page:location.href,ts:new Date().toISOString()};
+      var done=false;
+      function goNext(){if(done)return;done=true;window.location.href=dest;}
+      try{
+        fetch('https://hooks.zapier.com/hooks/catch/16453711/42j88cq/',{
+          method:'POST',mode:'no-cors',keepalive:true,
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify(payload)
+        }).then(goNext).catch(goNext);
+      }catch(err){goNext();}
+      // safety: never let the redirect hang on the webhook
+      setTimeout(goNext,1200);
     });
   })();
 </script>
