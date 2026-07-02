@@ -1522,14 +1522,15 @@ src="https://www.facebook.com/tr?id=1704508696858997&ev=PageView&noscript=1"
       var hook='https://hooks.zapier.com/hooks/catch/16453711/42j88cq/';
       // Capture opt-in to Zapier (form-encoded so Zapier parses fields), then redirect to Whop
       var params=new URLSearchParams({name:nm,email:ev,source:'landing-popup',page:location.href,ts:new Date().toISOString()});
+      var hookUrl=hook+'?'+params.toString();
       var sent=false;
       try{
         if(navigator.sendBeacon){
-          sent=navigator.sendBeacon(hook, new Blob([params.toString()],{type:'application/x-www-form-urlencoded'}));
+          sent=navigator.sendBeacon(hookUrl);
         }
       }catch(err){}
       if(!sent){
-        try{ fetch(hook,{method:'POST',mode:'no-cors',keepalive:true,body:params}); }catch(err){}
+        try{ fetch(hookUrl,{method:'POST',mode:'no-cors',keepalive:true}); }catch(err){}
       }
       setTimeout(function(){window.location.href=dest;}, sent?150:600);
     });
