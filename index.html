@@ -1519,19 +1519,19 @@ src="https://www.facebook.com/tr?id=1704508696858997&ev=PageView&noscript=1"
       if(!ev||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ev)){email.focus();email.style.borderColor='#dc2626';return;}
       var nm=name.value.trim();
       var dest='https://whop.com/checkout/plan_xL6vcCMMFTgVI?email='+encodeURIComponent(ev);
-      // Capture the opt-in to Zapier (Google Sheet), then redirect to Whop regardless of result
-      var payload={name:nm,email:ev,source:'landing-popup',page:location.href,ts:new Date().toISOString()};
-      var done=false;
-      function goNext(){if(done)return;done=true;window.location.href=dest;}
+      var hook='https://hooks.zapier.com/hooks/catch/16453711/42j88cq/';
+      // Capture opt-in to Zapier (form-encoded so Zapier parses fields), then redirect to Whop
+      var params=new URLSearchParams({name:nm,email:ev,source:'landing-popup',page:location.href,ts:new Date().toISOString()});
+      var sent=false;
       try{
-        fetch('https://hooks.zapier.com/hooks/catch/16453711/42j88cq/',{
-          method:'POST',mode:'no-cors',keepalive:true,
-          headers:{'Content-Type':'application/json'},
-          body:JSON.stringify(payload)
-        }).then(goNext).catch(goNext);
-      }catch(err){goNext();}
-      // safety: never let the redirect hang on the webhook
-      setTimeout(goNext,1200);
+        if(navigator.sendBeacon){
+          sent=navigator.sendBeacon(hook, new Blob([params.toString()],{type:'application/x-www-form-urlencoded'}));
+        }
+      }catch(err){}
+      if(!sent){
+        try{ fetch(hook,{method:'POST',mode:'no-cors',keepalive:true,body:params}); }catch(err){}
+      }
+      setTimeout(function(){window.location.href=dest;}, sent?150:600);
     });
   })();
 </script>
